@@ -1,0 +1,27 @@
+{
+  "name": "webehome_restufull_bin",
+  "version": "1.0.0",
+  "description": "Webe restfull json",
+  "main": "hello-world.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joab40/webe_restfull_bin.git"
+  },
+  "keywords": [
+    "Restfull",
+    "webehome"
+  ],
+  "author": "johan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joab40/webe_restfull_bin/issues"
+  },
+  "homepage": "https://github.com/joab40/webe_restfull_bin#readme"
+}
