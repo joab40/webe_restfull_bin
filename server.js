@@ -5,6 +5,8 @@ const cors = require('cors');
 const app = express()
 const port = 8080;
 
+
+
 let devices = [{
     "hid": "1",
     "device": "GillestugaEntre",
@@ -116,5 +118,11 @@ app.post('/device/:hid', (req, res) => {
     // sending 404 when not found something is a good practice
     res.send('Device is edited');
 });
+
+app.use(express.static('public'))
+//app.use(express.static('files'))
+app.use('/admin_client', express.static('public'))
+// const routeIndex = require("./admin_client/");
+// app.use("/admin_client", routeIndex);
 
 app.listen(port, () => console.log(`Restfull device app listening on port ${port}!`));
