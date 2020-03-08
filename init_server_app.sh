@@ -13,11 +13,6 @@
 # Description: Node process for app
 ### END INIT INFO
 
-### README
-# modified a bit: https://github.com/chovy/node-startup
-#
-# CHANGE THOSE VARIABLES
-
 # user to run the app as
 USER="johan"
 

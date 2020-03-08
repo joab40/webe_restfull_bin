@@ -1,3 +1,5 @@
+
+
 const express = require('express')
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -5,7 +7,9 @@ const cors = require('cors');
 const app = express()
 const port = 8080;
 
-let books = [{
+
+
+let devices = [{
     "hid": "1",
     "device": "GillestugaEntre",
     "status": "Closed",
@@ -52,42 +56,42 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.post('/book', (req, res) => {
-    const book = req.body;
+app.post('/device', (req, res) => {
+    const device = req.body;
 
-    // output the book to the console for debugging
-    console.log(book);
-    books.push(book);
+    // output the device to the console for debugging
+    console.log(device);
+    devices.push(device);
 
     res.send('Device is added to the database');
 });
 
-app.get('/book', (req, res) => {
-    res.json(books);
+app.get('/device', (req, res) => {
+    res.json(devices);
 });
 
-app.get('/book/:hid', (req, res) => {
+app.get('/device/:hid', (req, res) => {
     // reading isbn from the URL
     const hid = req.params.hid;
 
-    // searching books for the isbn
-    for (let book of books) {
-        if (book.hid === hid) {
-            res.json(book);
+    // searching devices for the isbn
+    for (let device of devices) {
+        if (device.hid === hid) {
+            res.json(device);
             return;
         }
     }
 
-    // sending 404 when not found something is a good practice
-    res.status(404).send('Book not found');
+    // sending 404 when not found
+    res.status(404).send('Device not found');
 });
 
-app.delete('/book/:hid', (req, res) => {
+app.delete('/device/:hid', (req, res) => {
     // reading isbn from the URL
     const hid = req.params.hid;
 
-    // remove item from the books array
-    books = books.filter(i => {
+    // remove item from the devices array
+    devices = devices.filter(i => {
         if (i.hid !== hid) {
             return true;
         }
@@ -99,17 +103,17 @@ app.delete('/book/:hid', (req, res) => {
     res.send('Device is deleted');
 });
 
-app.post('/book/:hid', (req, res) => {
+app.post('/device/:hid', (req, res) => {
     // reading isbn from the URL
     const hid = req.params.hid;
-    const newBook = req.body;
+    const newDevice = req.body;
 
-    // remove item from the books array
-    for (let i = 0; i < books.length; i++) {
-        let book = books[i]
+    // remove item from the devices array
+    for (let i = 0; i < devices.length; i++) {
+        let device = devices[i]
 
-        if (book.hid === hid) {
-            books[i] = newBook;
+        if (device.hid === hid) {
+            devices[i] = newDevice;
         }
     }
 
@@ -117,18 +121,18 @@ app.post('/book/:hid', (req, res) => {
     res.send('Device is edited');
 });
 
-app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));
+app.use(express.static('public'))
+//app.use(express.static('files'))
+app.use('/admin_client', express.static('public'))
+// const routeIndex = require("./admin_client/");
+// app.use("/admin_client", routeIndex);
 
-// -------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------
+app.listen(port, () => console.log(`Restfull device app listening on port ${port}!`));
+
+// ----------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------
 
