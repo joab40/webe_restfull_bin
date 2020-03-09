@@ -53,6 +53,7 @@ const loadBooks = () => {
                         <div>Status: ${book.status}</div>
                         <div>Publisher: ${book.publisher}</div>
                         <div>Value: ${book.value}</div>
+                        <div>Date: ${book.publish_date}</div>
 
                         <hr>
 

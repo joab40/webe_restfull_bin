@@ -78,6 +78,7 @@ app.get('/device/:hid', (req, res) => {
     for (let device of devices) {
         if (device.hid === hid) {
             res.json(device);
+            //console.log(`Restfull found returned hid ${hid}!`)
             return;
         }
     }
