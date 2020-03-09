@@ -18,7 +18,7 @@ args = parser.parse_args()
 if args.list:
     print("List True")
     try:
-        response = requests.get('http://localhost:8080/device/', timeout=1)
+        response = requests.get('http://localhost:8081/device/', timeout=1)
     except Timeout:
         print('The request timed out')
         sys.exit(100)
@@ -29,7 +29,7 @@ if args.list:
 
 if args.hid:
     try:
-        response = requests.get('http://localhost:8080/device/' + args.hid, timeout=1)
+        response = requests.get('http://localhost:8081/device/' + args.hid, timeout=1)
     except Timeout:
         print('The request timed out')
         sys.exit(100)

@@ -96,7 +96,7 @@ def main():
                 d = {'hid': counting, 'device': device.name, 'status': device.last_event_data, 'publish_date': device.last_event_time,
                      'publisher': 'Webehome',
                      'value': device.battery_level}
-                requests.post("http://localhost:8080/device/" + str(counting), data=d)
+                requests.post("http://localhost:8081/device/" + str(counting), data=d)
                 counting = counting + 1
                 #print(device)
             count += 1

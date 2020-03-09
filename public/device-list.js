@@ -1,7 +1,7 @@
 const setEditModal = (hid) => {
     const xhttp = new XMLHttpRequest();
 
-    xhttp.open("GET", `http://localhost:8080/device/${hid}`, false);
+    xhttp.open("GET", `http://localhost:8081/device/${hid}`, false);
     xhttp.send();
 
     const book = JSON.parse(xhttp.responseText);
@@ -22,13 +22,13 @@ const setEditModal = (hid) => {
     document.getElementById('value').value = value;
 
     // setting up the action url for the device
-    document.getElementById('editForm').action = `http://localhost:8080/device/${isbn}`;
+    document.getElementById('editForm').action = `http://localhost:8081/device/${isbn}`;
 }
 
 const deleteBook = (hid) => {
     const xhttp = new XMLHttpRequest();
 
-    xhttp.open("DELETE", `http://localhost:8080/device/${hid}`, false);
+    xhttp.open("DELETE", `http://localhost:8081/device/${hid}`, false);
     xhttp.send();
 
     location.reload();
@@ -37,7 +37,7 @@ const deleteBook = (hid) => {
 const loadBooks = () => {
     const xhttp = new XMLHttpRequest();
 
-    xhttp.open("GET", "http://localhost:8080/device", false);
+    xhttp.open("GET", "http://localhost:8081/device", false);
     xhttp.send();
 
     const books = JSON.parse(xhttp.responseText);
