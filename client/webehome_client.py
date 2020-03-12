@@ -2,6 +2,7 @@ import argparse
 import logging
 import requests
 import time
+import datetime
 
 from pybehome import PyBeHome
 from pybehome.constants import (ARM_HOME, ARM_AWAY, DISARM)
@@ -91,7 +92,7 @@ def main():
                 print(device)
                 if device.display_type not in [300, 310]:
                     continue
-                print(device.name, " ", device.last_event_data, " ",device.battery_level)
+                #print(device.name, " ", device.last_event_data, " ",device.battery_level)
 
                 d = {'hid': counting, 'device': device.name, 'status': device.last_event_data, 'publish_date': device.last_event_time,
                      'publisher': 'Webehome',
@@ -99,6 +100,12 @@ def main():
                 requests.post("http://localhost:8081/device/" + str(counting), data=d)
                 counting = counting + 1
                 #print(device)
+                datetime_object = datetime.datetime.now()
+                dm = {'hid': '100', 'device': 'webehome', 'status': 'open',
+                     'publish_date': datetime_object,
+                     'publisher': 'Webehome_client',
+                     'value': '100'}
+                requests.post("http://localhost:8081/device/100", data=dm)
             count += 1
             print('count: ', count)
             if not args.loop:

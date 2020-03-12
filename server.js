@@ -49,6 +49,14 @@ let devices = [{
     "publisher": "Webehome",
     "value": 100,
 },
+{
+    "hid": "100",
+    "device": "Webehome",
+    "status": "Closed",
+    "publish_date": "2020-00-00",
+    "publisher": "Webehome_client",
+    "value": 100,
+},
 ];
 
 app.use(cors());
