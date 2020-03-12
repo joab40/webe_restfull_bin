@@ -97,7 +97,7 @@ def main():
                 d = {'hid': counting, 'device': device.name, 'status': device.last_event_data, 'publish_date': device.last_event_time,
                      'publisher': 'Webehome',
                      'value': device.battery_level}
-                requests.post("http://localhost:8081/device/" + str(counting), data=d)
+                requests.post("http://localhost:8080/device/" + str(counting), data=d)
                 counting = counting + 1
                 #print(device)
                 datetime_object = datetime.datetime.now()
@@ -105,7 +105,7 @@ def main():
                      'publish_date': datetime_object,
                      'publisher': 'Webehome_client',
                      'value': '100'}
-                requests.post("http://localhost:8081/device/100", data=dm)
+                requests.post("http://localhost:8080/device/100", data=dm)
             count += 1
             print('count: ', count)
             if not args.loop:
