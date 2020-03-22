@@ -89,10 +89,10 @@ def main():
             counting = 1
             pybehome.update_devices()
             for device in pybehome.get_devices():
-                print(device)
+                #print(device)
                 if device.display_type not in [300, 310]:
                     continue
-                #print(device.name, " ", device.last_event_data, " ",device.battery_level)
+                print(device.name, " ", device.last_event_data, " ",device.battery_level)
 
                 d = {'hid': counting, 'device': device.name, 'status': device.last_event_data, 'publish_date': device.last_event_time,
                      'publisher': 'Webehome',

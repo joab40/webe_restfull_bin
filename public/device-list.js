@@ -1,5 +1,6 @@
 const setEditModal = (hid) => {
     const xhttp = new XMLHttpRequest();
+    console.log("EDIT -GET")
 
     xhttp.open("GET", `http://localhost:8080/device/${hid}`, false);
     xhttp.send();

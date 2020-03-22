@@ -1,0 +1,138 @@
+{
+  "1": {
+    "hid": "1",
+    "device": "GillestugaEntre",
+    "status": "Closed",
+    "publish_date": "0",
+    "publisher": "webehome_client.py",
+    "value": "100"
+  },
+  "2": {
+    "hid": "2",
+    "device": "GrovEntre",
+    "status": "Closed",
+    "publish_date": "0",
+    "publisher": "webehome_client.py",
+    "value": "100",
+    "remote_id": "1",
+    "type": "switch",
+    "vendor": "webehome"
+  },
+  "3": {
+    "hid": "3",
+    "device": "Kök",
+    "status": "Closed",
+    "publish_date": "0",
+    "publisher": "webehome_client.py",
+    "value": 100,
+    "remote_id": 1,
+    "type": "sensor",
+    "vendor": "webehome"
+  },
+  "4": {
+    "hid": "4",
+    "device": "Entre",
+    "status": "Closed",
+    "publish_date": "0",
+    "publisher": "webehome_client.py",
+    "value": 100,
+    "remote_id": 1,
+    "type": "switch",
+    "vendor": "webehome"
+  },
+  "5": {
+    "hid": "5",
+    "device": "BalkongEntre",
+    "status": "Closed",
+    "publish_date": "0",
+    "publisher": "webehome_client.py",
+    "value": 100,
+    "remote_id": 1,
+    "type": "switch",
+    "vendor": "webehome"
+  },
+  "10": {
+    "hid": "10",
+    "device": "TempEntre",
+    "status": "Closed",
+    "publish_date": "2020-01-01T00:00:00.000Z",
+    "publisher": "telldustemp_client.sh",
+    "value": 4,
+    "remote_id": 82,
+    "type": "temperature",
+    "vendor": "telldus"
+  },
+  "11": {
+    "hid": "11",
+    "device": "TempBastu",
+    "status": "Closed",
+    "publish_date": "2020-01-01T00:00:00.000Z",
+    "publisher": "telldustemp_client.sh",
+    "value": 90,
+    "remote_id": 135,
+    "type": "temperature",
+    "vendor": "telldus"
+  },
+  "12": {
+    "hid": "12",
+    "device": "TempGillestugan",
+    "status": "Closed",
+    "publish_date": "2020-01-01T00:00:00.000Z",
+    "publisher": "telldustemp_client.sh",
+    "value": 20,
+    "remote_id": 151,
+    "type": "temperature",
+    "vendor": "telldus"
+  },
+  "13": {
+    "hid": "13",
+    "device": "TempLisa",
+    "status": "Closed",
+    "publish_date": "2020-01-01T00:00:00.000Z",
+    "publisher": "telldustemp_client.sh",
+    "value": 20,
+    "remote_id": 74,
+    "type": "temperature",
+    "vendor": "telldus"
+  },
+  "21": {
+    "hid": "21",
+    "device": "HumidityBastu",
+    "status": "Closed",
+    "publish_date": "2020-01-01T00:00:00.000Z",
+    "publisher": "telldustemp_client.sh",
+    "value": 50,
+    "remote_id": 135,
+    "type": "humidity",
+    "vendor": "telldus"
+  },
+  "22": {
+    "hid": "22",
+    "device": "HumidityGillestugan",
+    "status": "Closed",
+    "publish_date": "2020-01-01T00:00:00.000Z",
+    "publisher": "telldustemp_client.sh",
+    "value": 50,
+    "remote_id": 151,
+    "type": "humidity",
+    "vendor": "telldus"
+  },
+  "30": {
+    "hid": "30",
+    "device": "SpaBubbel",
+    "status": "Closed",
+    "publish_date": "2020-01-01T00:00:00.000Z",
+    "publisher": "spa_temp.sh",
+    "value": 50,
+    "remote_id": "123",
+    "type": "temperature",
+    "vendor": "intouch2"
+  },
+  "100": {
+    "hid": "100",
+    "device": "Webehome",
+    "status": "Closed",
+    "publish_date": "0",
+    "publisher": "webehome_client.py"
+  }
+}

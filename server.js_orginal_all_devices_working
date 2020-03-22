@@ -9,8 +9,7 @@ const port = 8080;
 
 function appendObjTo(thatArray, newObj) {
   const frozenObj = Object.freeze(newObj);
-  //return Object.freeze(thatArray.concat(frozenObj));
-  return thatArray.concat(frozenObj);
+  return Object.freeze(thatArray.concat(frozenObj));
 }
 
 var inputfile = 'devices.yaml',
@@ -21,28 +20,71 @@ var inputfile = 'devices.yaml',
     var datat = JSON.stringify(obj)
 
     const values = Object.keys(obj)
-    //let devices = [];
-    //let devices = Object.create( null );
-    let odevices = [];
+    let devices = [];
     values.forEach(element => {
-    odevices = appendObjTo(odevices, obj[element]);
+    devices = appendObjTo(devices, obj[element]);
      })
-     //console.log(devices)
+     console.log(devices)
      fs.writeFileSync(outputfile, JSON.stringify(obj, null, 2));
 
-let ddevices = [
+devices = [{
+    "hid": "1",
+    "device": "GillestugaEntre",
+    "status": "Closed",
+    "publish_date": "2020-02-01",
+    "publisher": "Webehome",
+    "value": 100,
+    "kalle": 99,
+},
+{
+    "hid": "2",
+    "device": "GrovEntre",
+    "status": "Closed",
+    "publish_date": "2020-02-01",
+    "publisher": "Webehome",
+    "value": 100,
+},
+{
+    "hid": "3",
+    "device": "GrovEntre",
+    "status": "Closed",
+    "publish_date": "2020-02-01",
+    "publisher": "Webehome",
+    "value": 100,
+},
+{
+    "hid": "4",
+    "device": "GrovEntre",
+    "status": "Closed",
+    "publish_date": "2020-02-01",
+    "publisher": "Webehome",
+    "value": 100,
+},
+{
+    "hid": "5",
+    "device": "GrovEntre",
+    "status": "Closed",
+    "publish_date": "2020-02-01",
+    "publisher": "Webehome",
+    "value": 100,
+},
+{
+    "hid": "10",
+    "device": "EntreTemp",
+    "status": "Closed",
+    "publish_date": "2020-02-01",
+    "publisher": "telldustemp_client",
+    "value": 4,
+},
 {
     "hid": "100",
     "device": "Webehome",
     "status": "Closed",
-    "publish_date": "0",
-    "publisher": "Working_client",
+    "publish_date": "2020-00-00",
+    "publisher": "Webehome_client",
     "value": 100,
-}
+},
 ];
-
-let devices = []
-devices = odevices
 
 app.use(cors());
 
@@ -100,9 +142,7 @@ app.delete('/device/:hid', (req, res) => {
 app.post('/device/:hid', (req, res) => {
     // reading isbn from the URL
     const hid = req.params.hid;
-    //const newDevice = req.body;
-    const newDevice = JSON.parse(JSON.stringify(req.body));
-    //console.log(newDevice)
+    const newDevice = req.body;
 
     // remove item from the devices array
     for (let i = 0; i < devices.length; i++) {
@@ -110,18 +150,13 @@ app.post('/device/:hid', (req, res) => {
 
         if (device.hid === hid) {
             devices[i] = newDevice;
-            //newDevice.publisher;
-            //console.log(`Restfull post hid ${hid}!`)
-            //console.log(newDevice.publisher)
-            //console.log(devices[i].publisher)
-            //console.log(devices)
+            console.log(`Restfull post hid ${hid}!`)
+            console.log(newDevice)
         }
     }
 
     // sending 404 when not found something is a good practice
     res.send('Device is edited');
-    //console.log("Device id edit")
-    //console.log(res)
 });
 
 app.use(express.static('public'))

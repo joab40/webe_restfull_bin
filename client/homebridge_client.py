@@ -13,6 +13,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--hid', required=False)
 parser.add_argument('--list', action='store_true')
 
+
 args = parser.parse_args()
 
 if args.list:
