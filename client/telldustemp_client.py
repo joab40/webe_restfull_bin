@@ -2,6 +2,8 @@ import argparse
 import os
 import sys
 import yaml
+import requests
+import datetime
 
 # required arg
 basepath = os.path.dirname(os.path.abspath(__file__))
@@ -36,8 +38,12 @@ for device in yconfig:
     #print("device:", device)
     if yconfig[device]['publisher'] == "telldustemp_client.sh":
         print("device HID: ", yconfig[device])
-    #for dev in yconfig[device]:
-    #        print("dev", dev)
+        datetime_object = datetime.datetime.now()
+        d = {'hid': yconfig[device]['hid'], 'device': yconfig[device]['device'], 'status': 'Open',
+             'publish_date': datetime_object,
+             'publisher': 'telldustemp_client.py',
+             'value': '21'}
+        requests.post("http://localhost:8080/device/" + yconfig[device]['hid'], data=d)
 
 
 
